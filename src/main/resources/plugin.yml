@@ -1,0 +1,10 @@
+name: SkyBlock
+version: ${project.version}
+main: me.thomas.skyblock.SkyBlock
+api-version: 1.14
+authors: [ Thomas ]
+
+commands:
+  sbmenu:
+  items:
+  sbitem:
