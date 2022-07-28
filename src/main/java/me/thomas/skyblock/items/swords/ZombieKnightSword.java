@@ -15,7 +15,7 @@ public class ZombieKnightSword extends me.thomas.skyblock.items.SbItem implement
     public ZombieKnightSword() {
         super(new ItemStack(Material.IRON_SWORD), "Zombie Knight Sword", 82, 21,
                 null, Collections.singletonList(new SbAbility("Zombie Knight", AbilityType.FULL_SET_BONUS,
-                        Arrays.asList("&7Gains &c+30 &7Strenght when", "&used with the Zombie Knight",
+                        Arrays.asList("&7Gains &c+30 &7Strenght when", "&7used with the Zombie Knight",
                                 "&7Armor."))), true, SbRarity.EPIC_SWORD);
     }
 }

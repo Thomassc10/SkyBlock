@@ -22,8 +22,8 @@ public class AtomsplitKatana extends me.thomas.skyblock.items.SbItem implements 
         super(new ItemStack(Material.DIAMOND_SWORD), "Atomsplit Katana", 245, 100, 0, 30,
                 300, 0, 0, Arrays.asList("&7Deal &a+450% &7damage to Enderman.",
                         "&7Receive &a12% &7less damage", "&7from Enderman when held."), Collections.singletonList(
-                        new SbAbility("Soulcry", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &c+400⫽Ferocity &7against",
-                                "&7Enderman for &a4s", "&0Soulflow Cost: &31"), 200, 4)), true, SbRarity.EPIC_SWORD);
+                        new SbAbility("Soulcry", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &c+400⫽ Ferocity &7against",
+                                "&7Enderman for &a4s", "&8Soulflow Cost: &31"), 200, 4)), true, SbRarity.LEGENDARY_SWORD);
     }
 
     @EventHandler

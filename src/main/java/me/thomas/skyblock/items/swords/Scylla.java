@@ -15,8 +15,8 @@ public class Scylla extends me.thomas.skyblock.items.SbItem implements Listener 
 
     public Scylla() {
         super(new ItemStack(Material.IRON_SWORD), "Scylla", 270, 150, 12, 35,
-                50, 0, 0, 30, Arrays.asList("&7Deals &c+50% &7damage to",
-                        "&7Withers. Grants &c+1 %damage%Damage", "&7and &a+1&1%critDamage%Crit Damage &7per",
+                50, 0, 0, 30, Arrays.asList("&7Deals + &c50% &7damage to",
+                        "&7Withers. Grants &c+1 ❁ Damage", "&7and &a+1 &9%critDamage% Crit Damage &7per",
                         "&cCatacombs &7level."), null, true, SbRarity.LEGENDARY_SWORD);
     }
 

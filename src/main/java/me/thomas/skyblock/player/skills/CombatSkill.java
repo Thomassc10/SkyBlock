@@ -1,12 +1,12 @@
-package me.thomas.skyblock.skills;
+package me.thomas.skyblock.player.skills;
 
-public class EnchantingSkill {
+public class CombatSkill {
 
     private int level;
     private double currentExp;
     private double expNeeded;
-    public EnchantingSkill(){
-        Skills.setSkillType(SkillType.ENCHANTING);
+    public CombatSkill(){
+        Skills.setSkillType(SkillType.COMBAT);
     }
 
     public int getLevel() {

@@ -23,7 +23,7 @@ public class EnderBow extends me.thomas.skyblock.items.SbItem implements Listene
     public EnderBow() {
         super(new ItemStack(Material.BOW), "Ender Bow", 60, 0, null, Collections.singletonList(
                 new SbAbility("Ender Warp", AbilityType.LEFT_CLICK, Arrays.asList("&7Shoots and Ender Pearl. Upon",
-                        "&7landing you deal damage to all Monsters in a &a8.0 &7block",
+                        "&7landing you deal damage to all", "&7Monsters in a &a8.0 &7block",
                         "&7radius for &a10.0% &7of their", "&c%health%Health&7."), 50, 45)), true, SbRarity.RARE_BOW);
     }
 

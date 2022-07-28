@@ -21,11 +21,11 @@ public class ManaFluxPowerOrb extends me.thomas.skyblock.items.SbItem implements
 
     public ManaFluxPowerOrb() {
         super(Utils.getValueHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDk3Zjg2OTBlZGQyZGY4MTAwYjdkMGQzOGQ0YTAzMjVkZTgzNDFiZTM5MGI4Y2RjMDIxYjI1MDJhMTU1MmE5NiJ9fX0="),
-                "Radiant Power Orb", Arrays.asList("&1Orb Buff: Mana Flux", "&7Grants &b+50% &7base mana regen.", "&7Heals &c2% &7of max &c%health% &7per second.",
+                "Mana Flux Power Orb", Arrays.asList("&9Orb Buff: Mana Flux", "&7Grants &b+50% &7base mana regen.", "&7Heals &c2% &7of max &c%health% &7per second.",
                         "&7Grants &c+10%strenght%Strenght&7."),
                 Collections.singletonList(new SbAbility("Deploy", AbilityType.NONE,
                         Arrays.asList("&7Place and orb for &a30s &7buffing", "&7up to &b5 &7players within &a18", "&7blocks.",
-                                "&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.RARE_POWER_ORB);
+                                "&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.RARE_DEPLOYABLE);
     }
 
     @EventHandler

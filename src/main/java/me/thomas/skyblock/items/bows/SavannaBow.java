@@ -14,7 +14,7 @@ public class SavannaBow extends me.thomas.skyblock.items.SbItem implements Liste
 
     public SavannaBow() {
         super(new ItemStack(Material.BOW), "Savanna Bow", 50, 0, Arrays.asList("&7All damage dealt with this bow",
-                "&7is &adoubled&7."), null, true, SbRarity.COMMON_BOW);
+                "&7is &adoubled&7."), null, true, SbRarity.UNCOMMON_BOW);
     }
 
     @EventHandler

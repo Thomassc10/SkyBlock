@@ -15,8 +15,8 @@ public class Valkyrie extends me.thomas.skyblock.items.SbItem implements Listene
 
     public Valkyrie() {
         super(new ItemStack(Material.IRON_SWORD), "Valkyrie", 270, 145, 0, 0,
-                60, 0, 0, 60, Arrays.asList("&7Deals &c+50% &7damage to",
-                        "&7Withers. Grants &c+1 %damage%Damage", "&7and &a+1&c%strenght%Strenght &7per",
+                60, 0, 0, 60, Arrays.asList("&7Deals + &c50% &7damage to",
+                        "&7Withers. Grants &c+1 ❁ Damage", "&7and &a+1 &c%strenght% Strenght &7per",
                         "&cCatacombs &7level."), null, true, SbRarity.LEGENDARY_SWORD);
     }
 

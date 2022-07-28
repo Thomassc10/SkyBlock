@@ -27,7 +27,7 @@ public class FloridZombieSword extends me.thomas.skyblock.items.SbItem implement
     public FloridZombieSword() {
         super(new ItemStack(Material.GOLDEN_SWORD), "Florid Zombie Sword", 150, 80, 0, 0, 100, 0, 0,
                 Arrays.asList("&7Gain &a+2 &7extra max charges", "&7when you play as a &aHealer &7 in", "&7Dungeons."), Collections.singletonList(
-                new SbAbility("Instant Heal", AbilityType.RIGHT_CLICK, Arrays.asList("&7Heal for &c168 + 5%❤ &7and",
+                new SbAbility("Instant Heal", AbilityType.RIGHT_CLICK, Arrays.asList("&7Heal for &c168 &7+ &c5%❤ &7and",
                         "&7heal player within &a8 &7blocks", "&7for &c56❤&7."), 70, 15)), true, SbRarity.LEGENDARY_SWORD);
         Utils.setIntInItem(getItem(), "charges", 5);
     }

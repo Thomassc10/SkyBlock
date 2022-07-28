@@ -1,16 +1,23 @@
-package me.thomas.skyblock.skills;
+package me.thomas.skyblock.player.skills;
 
 import me.thomas.skyblock.player.SbPlayer;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class SkillLevelUpEvent extends Event implements Cancellable {
+public class SkillExpGainEvent extends Event implements Cancellable {
 
     private static final HandlerList HANDLERS = new HandlerList();
+
     private SbPlayer sbPlayer;
-    private SkillType skill;
     private int level;
+    private double currentExp;
+    private double expNeeded;
+    public SkillExpGainEvent(SbPlayer sbPlayer , double currentExp, double expNeeded){
+        this.sbPlayer = sbPlayer;
+        this.currentExp = currentExp;
+        this.expNeeded = expNeeded;
+    }
 
     @Override
     public HandlerList getHandlers() {
@@ -21,16 +28,24 @@ public class SkillLevelUpEvent extends Event implements Cancellable {
         return HANDLERS;
     }
 
-    public SbPlayer getSBPlayer(){
+    public SbPlayer getSBPlayer() {
         return sbPlayer;
     }
 
-    public SkillType getSkill(){
-        return skill;
+    public double getExpNeeded() {
+        return expNeeded;
+    }
+
+    public double getCurrentExp() {
+        return currentExp;
     }
 
     public int getLevel() {
         return level;
+    }
+
+    public void LevelUp(){
+        level++;
     }
 
     @Override
@@ -42,4 +57,5 @@ public class SkillLevelUpEvent extends Event implements Cancellable {
     public void setCancelled(boolean b) {
 
     }
+
 }

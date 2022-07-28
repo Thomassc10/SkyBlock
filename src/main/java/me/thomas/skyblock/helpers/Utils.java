@@ -294,15 +294,17 @@ public class Utils {
         return false;
     }
 
-    public static double getMeleeDamage(SbPlayer sbPlayer, SbItem sbItem) {
+    public static double getMeleeDamage(SbPlayer sbPlayer, SbItem sbItem, boolean crit) {
         int damage = sbItem != null ? sbItem.getDamage() : 0;
         double baseDamage = (5 + damage) /*+ (stats.getAllStrenght(player, item) / 5))*/ * (1 + (double) (sbPlayer.getStrenght() / 100));
         double damageMultiplier = 1 + (sbPlayer.getSkills().getCombatSkill().getLevel() * 0.04) /*enchants + weapon bonus*/;
         double finalDamage = (baseDamage * damageMultiplier) /*armor bonus*/;
         Random r = new Random();
-        if (r.nextInt(100) <= sbPlayer.getCriticalChance()) {
-            finalDamage *= (1 + ((double) sbPlayer.getCriticalDamage() / 100));
-        }
+        if (!crit) {
+            if (r.nextInt(100) <= sbPlayer.getCriticalChance()) {
+                finalDamage *= (1 + ((double) sbPlayer.getCriticalDamage() / 100));
+            }
+        } else finalDamage *= (1 + ((double) sbPlayer.getCriticalDamage() / 100));
         return finalDamage;
     }
 

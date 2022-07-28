@@ -26,7 +26,7 @@ public class ZombieSword extends me.thomas.skyblock.items.SbItem implements List
 
     public ZombieSword() {
         super(new ItemStack(Material.IRON_SWORD), "Zombie Sword", 100, 50, 0, 0, 50, 0, 0, null, Collections.singletonList(
-                new SbAbility("Instant Heal", AbilityType.RIGHT_CLICK, Arrays.asList("&7Heal for &c120 + 5%❤ &7and",
+                new SbAbility("Instant Heal", AbilityType.RIGHT_CLICK, Arrays.asList("&7Heal for &c120 &7+ &c5%❤ &7and",
                         "&7heal player within &a7 &7blocks", "&7for &c40❤&7."), 70, 15)), true, SbRarity.RARE_SWORD);
         Utils.setIntInItem(getItem(), "charges", 4);
     }

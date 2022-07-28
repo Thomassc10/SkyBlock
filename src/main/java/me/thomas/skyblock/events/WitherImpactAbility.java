@@ -13,7 +13,6 @@ public class WitherImpactAbility implements Listener {
 
     @EventHandler
     public void onUse(AbilityUseEvent event) {
-        if (!event.getSbItem().equals(this)) return;
         if (!event.getAbility().getName().contains("Wither impact")) return;
         Player player = event.getPlayer();
         SbPlayer sbPlayer = event.getSbPlayer();

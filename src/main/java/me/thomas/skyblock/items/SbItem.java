@@ -152,16 +152,30 @@ public class SbItem {
         if (defense > 0) {
             lore.add(Utils.color("&7Defense: &a+" + defense));
         }
-        lore.add("");
-        if (description != null) {
-            for (String d : description)
-                lore.add(Utils.color(Utils.icon(d)));
+        if (!lore.isEmpty())
             lore.add("");
-        }
-        if (abilities != null) {
-            for (SbAbility sbAbility : abilities)
-                lore.addAll(sbAbility.toLore());
-            lore.add("");
+        if (sbRarity.toString().contains("DEPLOYABLE")) {
+            if (abilities != null) {
+                for (SbAbility sbAbility : abilities)
+                    lore.addAll(sbAbility.toLore());
+                lore.add("");
+            }
+            if (description != null) {
+                for (String d : description)
+                    lore.add(Utils.color(Utils.icon(d)));
+                lore.add("");
+            }
+        } else {
+            if (description != null) {
+                for (String d : description)
+                    lore.add(Utils.color(Utils.icon(d)));
+                lore.add("");
+            }
+            if (abilities != null) {
+                for (SbAbility sbAbility : abilities)
+                    lore.addAll(sbAbility.toLore());
+                lore.add("");
+            }
         }
         if (canBeReforged)
             lore.add(ChatColor.DARK_GRAY + "This item can be reforged!");

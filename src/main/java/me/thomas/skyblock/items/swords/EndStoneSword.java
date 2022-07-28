@@ -21,7 +21,7 @@ public class EndStoneSword extends me.thomas.skyblock.items.SbItem implements Li
     public EndStoneSword() {
         super(new ItemStack(Material.GOLDEN_SWORD), "End Stone Sword", 120, 80, null, Collections.singletonList(
                 new SbAbility("Extreme Focus", AbilityType.RIGHT_CLICK, Arrays.asList("&7Consumes all your remaining mana",
-                        "&7 to grant Damage Resistance for", "&a5 &7seconds and extra damage",
+                        "&7to grant Damage Resistance for", "&a5 &7seconds and extra damage",
                         "&7on your next hit (within 5", "&7seconds) depending on how much", "&7mana was consumed!"), 20)), true, SbRarity.EPIC_SWORD);
     }
 

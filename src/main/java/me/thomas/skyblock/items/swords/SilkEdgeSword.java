@@ -31,7 +31,7 @@ public class SilkEdgeSword extends me.thomas.skyblock.items.SbItem implements Li
     public void onUse(AbilityUseEvent event) {
         if (!event.getSbItem().equals(this)) return;
         Player player = event.getPlayer();
-        player.setVelocity(player.getLocation().getDirection().multiply(2).setY(2));
+        player.setVelocity(player.getLocation().getDirection().setY(1));
         player.playSound(player.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_LAUNCH, 1, 1);
         Utils.setIntInEntity(player, "leaping", 0);
     }
@@ -39,14 +39,13 @@ public class SilkEdgeSword extends me.thomas.skyblock.items.SbItem implements Li
     @EventHandler
     public void onLand(PlayerMoveEvent event) {
         Player player = event.getPlayer();
+        if (Utils.getIntFromEntity(player, "leaping") != 0) return;
         if (event.getTo().getBlock().getType() != Material.AIR) {
-            if (Utils.getIntFromEntity(player, "leaping") == 0) {
-                Utils.setIntInEntity(player, "leaping", 1);
-                player.getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, player.getLocation(), 1);
-                for (LivingEntity living : Utils.getNearestEntities(player, 2)) {
-                    if (!(living instanceof Player))
-                        living.damage(400);
-                }
+            Utils.setIntInEntity(player, "leaping", 1);
+            player.getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, player.getLocation(), 1);
+            for (LivingEntity living : Utils.getNearestEntities(player, 2)) {
+                if (!(living instanceof Player))
+                    living.damage(400);
             }
         }
     }

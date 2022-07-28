@@ -22,11 +22,11 @@ public class OverfluxPowerOrb extends SbItem implements Listener {
 
 	public OverfluxPowerOrb() {
 		super(Utils.getValueHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODQ4NTlkMGFkZmM5M2JlMTliYjQ0MWU2ZWRmZDQzZjZiZmU2OTEyNzIzMDMzZjk2M2QwMDlhMTFjNDgyNDUxMCJ9fX0="),
-				"&5Overflux Power Orb", Arrays.asList("&5Orb Buff: Overflux", "&7Grants &b+100% &7base mana regen.",
+				"Overflux Power Orb", Arrays.asList("&5Orb Buff: Overflux", "&7Grants &b+100% &7base mana regen.",
 						"&7Heals &c2.5% &7of max &c❤ &7per second.", "&7Increases all heals by &a+5%.", "&7Grants &c+25❁Strength."),
 				Collections.singletonList(new SbAbility("Deploy", AbilityType.NONE,
 						Arrays.asList("&7Place an orb for &a60s &7buffing", "&7up to &b5 &7players within &a20", "&7blocks.",
-								"&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.EPIC_POWER_ORB);
+								"&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.LEGENDARY_DEPLOYABLE);
 	}
 
 	@EventHandler

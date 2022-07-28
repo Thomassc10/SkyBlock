@@ -1,7 +1,7 @@
 package me.thomas.skyblock.player;
 
 import me.thomas.skyblock.helpers.Utils;
-import me.thomas.skyblock.skills.Skills;
+import me.thomas.skyblock.player.skills.Skills;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;

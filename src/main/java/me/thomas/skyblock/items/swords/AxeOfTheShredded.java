@@ -26,7 +26,7 @@ public class AxeOfTheShredded extends me.thomas.skyblock.items.SbItem implements
                 "&7from Zombies when held."), Collections.singletonList(new SbAbility("Throw", AbilityType.RIGHT_CLICK,
                 Arrays.asList("&7Throw your axe damaging all", "&7enemies in its path dealing",
                         "&c10% &7melee damage.", "&7Consecutive throws stack &cx2",
-                        "&7damage but costs &12x &7mana up", "&7to &116x&7."), 20)), true, SbRarity.LEGENDARY_SWORD);
+                        "&7damage but costs &92x &7mana up", "&7to &916x&7."), 20)), true, SbRarity.LEGENDARY_SWORD);
     }
 
     @EventHandler

@@ -19,9 +19,9 @@ import me.thomas.skyblock.items.powerorbs.RadiantPowerOrb;
 import me.thomas.skyblock.items.specialitems.DctrsSpaceHelmet;
 import me.thomas.skyblock.items.swords.*;
 import me.thomas.skyblock.menus.CraftingMenu;
+import me.thomas.skyblock.player.HealthRegeneration;
 import me.thomas.skyblock.player.ManaRegeneration;
 import me.thomas.skyblock.player.PlayerManager;
-import me.thomas.skyblock.player.HealthRegeneration;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -37,38 +37,24 @@ public class SkyBlock extends JavaPlugin {
 
 	private static SkyBlock instance;
 	public DataManager dataManager;
-	//public ProtocolManager protocolManager;
-	private final PlayerManager playerManager;
 	public SkyBlock() {
 		dataManager = new DataManager(this);
-		playerManager = new PlayerManager();
 	}
 	
 	@Override
 	public void onEnable() {
 		instance = this;
-		//protocolManager = ProtocolLibrary.getProtocolManager();
-		/*if (this.getServer().getPluginManager().getPlugin("ProtocolLib") == null) {
-			System.out.println("[SkyBlock] Missing 'ProtocolLib'. Disabling the plugin");
-			this.getServer().getPluginManager().disablePlugin(this);
-		}*/
+		new PlayerManager();
 		Items.registerSbItems();
 		this.saveDefaultConfig();
 		registerCommands();
 		registerEvents();
-		registerPackets();
 		SbEntities.registerEntities();
 
 		me.thomas.skyblock.menus.SbMenu.register();
 		me.thomas.skyblock.menus.ItemsMenu.register();
 		CraftingMenu.register();
 
-		/*for (Player player : Bukkit.getOnlinePlayers()) {
-			if (player != null) {
-				SbPlayer sbPlayer = new SbPlayer(player.getUniqueId());
-				playerManager.addSBPlayer(sbPlayer);
-			}
-		}*/
 		Bukkit.getWorlds().forEach(world -> world.setPVP(false));
 		Bukkit.getScheduler().scheduleSyncDelayedTask(this, (Runnable) new HealthRegeneration(), 1);
 		Bukkit.getScheduler().scheduleSyncDelayedTask(this, (Runnable) new ManaRegeneration(), 1);
@@ -76,20 +62,11 @@ public class SkyBlock extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
-		/*if (!playerManager.getSBPlayers().isEmpty())
-			SaveSBPlayers.savePlayers();*/
+
 	}
 
 	public static SkyBlock getInstance() {
 		return instance;
-	}
-
-	/*public ProtocolManager getProtocolManager() {
-		return protocolManager;
-	}*/
-
-	public void registerPackets() {
-
 	}
 
 	public void registerEvents() {

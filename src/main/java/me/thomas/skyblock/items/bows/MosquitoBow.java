@@ -24,7 +24,7 @@ public class MosquitoBow extends me.thomas.skyblock.items.SbItem implements List
 
     public MosquitoBow() {
         super(new ItemStack(Material.BOW), "Mosquito Bow", 251, 151, 0, 39, 0, 0, 0, 0, null, Collections.singletonList(
-                new SbAbility("Nasty Bite", AbilityType.NONE, Arrays.asList("&1Fully charged shots while sneaking",
+                new SbAbility("Nasty Bite", AbilityType.NONE, Arrays.asList("&8Fully charged shots while sneaking",
                         "&7Costs &b11% &7of max mana.", "&7Deal &c+19% &7damage.", "&7Heal for &a2x &7the mana cost."))), true, SbRarity.LEGENDARY_BOW);
     }
 
@@ -53,7 +53,7 @@ public class MosquitoBow extends me.thomas.skyblock.items.SbItem implements List
         SbPlayer sbPlayer = PlayerManager.getPlayerManager().getSBPlayer(player);
         SbItem sbItem = Items.getSbItem(player.getInventory().getItemInMainHand());
         if (Utils.getIntFromEntity(event.getEntity(), "mosquito") == 1) {
-            ((LivingEntity)event.getHitEntity()).damage(Utils.getPercent(Utils.getMeleeDamage(sbPlayer, sbItem), 19));
+            ((LivingEntity)event.getHitEntity()).damage(Utils.getPercent(Utils.getMeleeDamage(sbPlayer, sbItem, false), 19));
         }
     }
 }

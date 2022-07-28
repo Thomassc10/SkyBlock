@@ -22,7 +22,7 @@ public class HurricaneBow extends me.thomas.skyblock.items.SbItem implements Lis
         super(new ItemStack(Material.BOW), "Hurricane Bow", 120, 50, null, Collections.singletonList(
                 new SbAbility("Tempest", AbilityType.NONE, Arrays.asList("&7The more kills you get using",
                         "&7this bow the more powerful it", "&7becomes! Reach &6250 &7kills to",
-                        "&7unlock its full potential.", "&7Next Upgrade: &eDouble Shot &1(&a0&7/&c20&1)",
+                        "&7unlock its full potential.", "&7Next Upgrade: &eDouble Shot &8(&a0&7/&c20&8)",
                         "", "&7Kills: &b0"))), true, SbRarity.EPIC_BOW);
         Utils.setIntInItem(getItem(), "kills", 0);
         Utils.setIntInItem(getItem(), "upgrade", 1);

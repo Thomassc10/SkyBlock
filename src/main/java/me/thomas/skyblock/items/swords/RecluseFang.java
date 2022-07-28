@@ -21,7 +21,7 @@ public class RecluseFang extends me.thomas.skyblock.items.SbItem implements List
     public RecluseFang() {
         super(new ItemStack(Material.IRON_SWORD), "Recluse Fang", 120, 30, 0, 20, 0, 0, 0, null, Collections.singletonList(
                 new SbAbility("Sqash'em", AbilityType.NONE, Arrays.asList("&7Squash Spiders to accumulate",
-                        "&7strenght against them.", "&7Bonus: &c+0", "&0+1 strenght per 40 squashed"))), true, SbRarity.RARE_SWORD);
+                        "&7strenght against them.", "&7Bonus: &c+0", "&8+1 strenght per 40 squashed"))), true, SbRarity.RARE_SWORD);
         Utils.setIntInItem(getItem(), "kills", 0);
         Utils.setIntInItem(getItem(), "strenght", 0);
     }

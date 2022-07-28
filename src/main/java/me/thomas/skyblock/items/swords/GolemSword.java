@@ -22,7 +22,7 @@ public class GolemSword extends me.thomas.skyblock.items.SbItem implements Liste
 
     public GolemSword() {
         super(new ItemStack(Material.IRON_SWORD), "Golem Sword", 80, 125, 0, 0, 0, 0, 25, null, Collections.singletonList(
-                new SbAbility("Iron Punch", AbilityType.RIGHT_CLICK, Arrays.asList("&Punch the ground, damaging",
+                new SbAbility("Iron Punch", AbilityType.RIGHT_CLICK, Arrays.asList("&7Punch the ground, damaging",
                         "&7enemies in a hexagon around you", "&7for &a250 &7base Magic Damage"), 70, 3)), true, SbRarity.RARE_SWORD);
     }
 

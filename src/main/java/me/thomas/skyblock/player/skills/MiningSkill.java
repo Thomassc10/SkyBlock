@@ -1,12 +1,12 @@
-package me.thomas.skyblock.skills;
+package me.thomas.skyblock.player.skills;
 
-public class CombatSkill {
+public class MiningSkill {
 
     private int level;
     private double currentExp;
     private double expNeeded;
-    public CombatSkill(){
-        Skills.setSkillType(SkillType.COMBAT);
+    public MiningSkill(){
+        Skills.setSkillType(SkillType.MINING);
     }
 
     public int getLevel() {
@@ -17,7 +17,7 @@ public class CombatSkill {
         this.level = level;
     }
 
-    public void LevelUp(){
+    public void levelUp(){
         level++;
     }
 

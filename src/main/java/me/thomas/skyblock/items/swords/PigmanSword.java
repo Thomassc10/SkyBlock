@@ -23,7 +23,7 @@ public class PigmanSword extends me.thomas.skyblock.items.SbItem implements List
 
     public PigmanSword() {
         super(new ItemStack(Material.GOLDEN_SWORD), "Pigman Sword", 200, 100, 5, 30, 300, 0, 0, null, Collections.singletonList(
-                new SbAbility("Burning Souls", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &a+300 Defense &7for",
+                new SbAbility("Burning Souls", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &a+300%defense% Defense &7for",
                         "&7&a5s &7and cast vortex of flames", "&7towards enemies, dealing up to",
                         "&c30,000 &7over &a5 &7seconds."), 400, 5)), true, SbRarity.LEGENDARY_SWORD);
     }

@@ -36,7 +36,7 @@ public class NecromancerSword extends me.thomas.skyblock.items.SbItem implements
         super(new ItemStack(Material.IRON_SWORD), "Necromancer Sword", 250, 125, 0, 0, 0, 0, 125, null, Collections.singletonList(
                 new SbAbility("Raise Souls", AbilityType.RIGHT_CLICK, Arrays.asList("&7Monsters you kill using this",
                         "&7item will drop their soul. You", "&7can click on their souls on the",
-                        "&7ground using this item to absorb", "&7them and then spawn them to", "fight by your side.", "",
+                        "&7ground using this item to absorb", "&7them and then spawn them to", "&7fight by your side.", "",
                         "&7Mana cost is based on the power", "&7of the monsters that you summon.",
                         "&7Shift right-click to view and", "&7remove souls from this item. If",
                         "&7your summoned monster dies the", "&7soul will be removed.", "&7Max Souls: &d2"), 0, 1)), true, SbRarity.LEGENDARY_SWORD);

@@ -13,7 +13,7 @@ public class InstantDeathRespawn implements Listener {
     public void onDamage(EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof Player)) return;
         Player player = ((Player) event.getEntity()).getPlayer();
-        if (event.getFinalDamage() >= player.getHealth()) {
+        if (event.getDamage() >= player.getHealth()) {
             event.setCancelled(true);
             player.teleport(player.getWorld().getSpawnLocation());
             player.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());

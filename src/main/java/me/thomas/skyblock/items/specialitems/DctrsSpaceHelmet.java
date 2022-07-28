@@ -19,8 +19,8 @@ public class DctrsSpaceHelmet extends SbItem implements Listener {
 
     public DctrsSpaceHelmet() {
         super(new ItemStack(Material.RED_STAINED_GLASS), "Dctr's Space Helmet",
-                Arrays.asList(ChatColor.ITALIC + "¨&7A rare space helmet forged", ChatColor.ITALIC + "from shards of moon glass.", "",
-                        "&7To: Unknown", "&7From: Unknown"), null,true, SbRarity.SPECIAL_HELMET);
+                Arrays.asList(ChatColor.ITALIC + "&7A rare space helmet forged", ChatColor.ITALIC + "&7from shards of moon glass", "",
+                        "&7To: Unknown", "&7From: Unknown", "", "&8Edition #0", "&8January 1970"), null,true, SbRarity.SPECIAL_HELMET);
     }
 
     @EventHandler

@@ -34,7 +34,7 @@ public class AspectOfTheDragons extends me.thomas.skyblock.items.SbItem implemen
             if (!(lv instanceof Player))
                 if (player.hasLineOfSight(lv)) {
                     lv.damage(12000);
-                    lv.setVelocity(player.getLocation().getDirection().multiply(3));
+                    lv.setVelocity(lv.getLocation().clone().subtract(player.getLocation()).toVector().normalize());
                     player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
                 }
         }

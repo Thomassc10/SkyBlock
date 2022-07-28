@@ -1,4 +1,4 @@
-package me.thomas.skyblock.skills;
+package me.thomas.skyblock.player.skills;
 
 public class Skills {
 

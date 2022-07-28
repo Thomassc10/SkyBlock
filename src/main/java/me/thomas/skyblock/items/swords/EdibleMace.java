@@ -21,7 +21,7 @@ public class EdibleMace extends me.thomas.skyblock.items.SbItem implements Liste
         super(new ItemStack(Material.MUTTON), "Edible Mace", 125, 25, null, Collections.singletonList(
                 new SbAbility("ME SMASH HEAD", AbilityType.RIGHT_CLICK, Arrays.asList("&7Your next attack deals &cdouble",
                         "&cdamage &7and weakens animals,", "&7making them deal &c-35% &7damage", "&7for &a30 &7seconds.",
-                        "&0Debuff  doesn't stack."), 100)), true, SbRarity.RARE_SWORD);
+                        "&8Debuff  doesn't stack."), 100)), true, SbRarity.RARE_SWORD);
     }
 
     @EventHandler

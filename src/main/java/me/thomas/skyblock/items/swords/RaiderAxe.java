@@ -17,9 +17,9 @@ public class RaiderAxe extends me.thomas.skyblock.items.SbItem implements Listen
 
     public RaiderAxe() {
         super(new ItemStack(Material.IRON_AXE), "Raider Axe", 80, 50,
-                Arrays.asList("&7Earn &6+20 coins &7form monster kills (level &e+10 &7only)", "",
-                        "&c+1 Damage &7per &c500 &7kills", "&0Max +35", "&7Kills: &c0", "",
-                        "&c+1 ❁ Strenght &7per &e500 &7wood", "&0Sums wood collections, max +100",
+                Arrays.asList("&7Earn &6+20 coins &7form monster kills (level &e+10 &7only)",
+                        "&c+1 Damage &7per &c500 &7kills", "&8Max +35", "&7Kills: &c0", "",
+                        "&c+1 ❁ Strenght &7per &e500 &7wood", "&8Sums wood collections, max +100",
                         "&7Wood collections: &e0"), null, true, SbRarity.RARE_SWORD);
         Utils.setIntInItem(getItem(), "kills", 0);
         Utils.setIntInItem(getItem(), "damage", 0);

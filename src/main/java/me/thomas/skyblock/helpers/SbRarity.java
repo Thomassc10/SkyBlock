@@ -86,13 +86,13 @@ public enum SbRarity {
     MYTHIC_BOOTS(ChatColor.LIGHT_PURPLE),
     SPECIAL_BOOTS(ChatColor.DARK_RED),
 
-    COMMON_POWER_ORB(ChatColor.WHITE),
-    UNCOMMON_POWER_ORB(ChatColor.GREEN),
-    RARE_POWER_ORB(ChatColor.BLUE),
-    EPIC_POWER_ORB(ChatColor.DARK_PURPLE),
-    LEGENDARY_POWER_ORB(ChatColor.GOLD),
-    MYTHIC_POWER_ORB(ChatColor.LIGHT_PURPLE),
-    SPECIAL_POWER_ORB(ChatColor.DARK_RED);
+    COMMON_DEPLOYABLE(ChatColor.WHITE),
+    UNCOMMON_DEPLOYABLE(ChatColor.GREEN),
+    RARE_DEPLOYABLE(ChatColor.BLUE),
+    EPIC_DEPLOYABLE(ChatColor.DARK_PURPLE),
+    LEGENDARY_DEPLOYABLE(ChatColor.GOLD),
+    MYTHIC_DEPLOYABLE(ChatColor.LIGHT_PURPLE),
+    SPECIAL_DEPLOYABLE(ChatColor.DARK_RED);
 
     private ChatColor color;
     SbRarity(ChatColor color) {

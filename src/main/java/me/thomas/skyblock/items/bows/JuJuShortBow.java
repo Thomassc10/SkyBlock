@@ -72,7 +72,7 @@ public class JuJuShortBow extends SbItem implements Listener {
             event.setCancelled(true);
             SbItem sbItem = Items.getSbItem(player.getInventory().getItemInMainHand());
             ((LivingEntity)event.getHitEntity()).damage(Utils.getMeleeDamage(PlayerManager.getPlayerManager().getSBPlayer(player),
-                    sbItem));
+                    sbItem, false));
         }
     }
 }

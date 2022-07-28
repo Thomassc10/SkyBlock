@@ -23,7 +23,7 @@ public class LividDagger extends me.thomas.skyblock.items.SbItem implements List
 
     public LividDagger() {
         super(new ItemStack(Material.IRON_SWORD), "Livid Dagger", 210, 60, 100, 50, 0, 0, 0, 
-                Arrays.asList("&7Your Critical Hits deal &1100%", "&7more damage if you are behind", "&7your target."), Collections.singletonList(
+                Arrays.asList("&7Your Critical Hits deal &9100%", "&7more damage if you are behind", "&7your target."), Collections.singletonList(
                         new SbAbility("Throw", AbilityType.RIGHT_CLICK, Arrays.asList("&7Throw your dagger at your",
                                 "&7enemies!"), 150, 5)), true, SbRarity.LEGENDARY_SWORD);
     }

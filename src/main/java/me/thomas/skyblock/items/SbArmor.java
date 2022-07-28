@@ -25,6 +25,7 @@ public class SbArmor {
     private int mana;
     private int speed;
     private double seaCreatureChance;
+    private int ferocity;
     private List<String> description;
     private List<SbAbility> abilities;
     private final boolean canBeReforged;
@@ -47,12 +48,18 @@ public class SbArmor {
         this.setLore(item);
     }
 
-    public SbArmor(ItemStack item, String name, int health, int defense, int strenght, List<String> description, List<SbAbility> abilities, boolean canBeReforged, SbRarity sbRarity) {
+    public SbArmor(ItemStack item, String name, int health, int defense, int strenght, int critChance, int critDamage, int mana, int speed, double seaCreatureChance, int ferocity, List<String> description, List<SbAbility> abilities, boolean canBeReforged, SbRarity sbRarity) {
         this.item = item;
         this.name = name;
         this.health = health;
         this.defense = defense;
         this.strenght = strenght;
+        this.critChance = critChance;
+        this.critDamage = critDamage;
+        this.mana = mana;
+        this.speed = speed;
+        this.seaCreatureChance = seaCreatureChance;
+        this.ferocity = ferocity;
         this.description = description;
         this.abilities = abilities;
         this.canBeReforged = canBeReforged;
@@ -184,5 +191,9 @@ public class SbArmor {
 
     public int getSpeed() {
         return speed;
+    }
+
+    public int getFerocity() {
+        return ferocity;
     }
 }

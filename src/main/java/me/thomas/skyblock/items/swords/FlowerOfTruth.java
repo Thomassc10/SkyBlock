@@ -17,6 +17,7 @@ import net.minecraft.world.entity.decoration.EntityArmorStand;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -26,6 +27,7 @@ import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.EulerAngle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,66 +49,54 @@ public class FlowerOfTruth extends me.thomas.skyblock.items.SbItem implements Li
         if (!event.getSbItem().equals(this)) return;
         Player player = event.getPlayer();
         Location loc = player.getLocation();
-        EntityArmorStand armorStand = new EntityArmorStand(EntityTypes.c, ((CraftWorld)player.getWorld()).getHandle());
-        armorStand.setInvulnerable(true);
-        armorStand.setInvisible(true);
-        armorStand.setMarker(true);
-        armorStand.setPosition(loc.getX(), loc.getY() + 1, loc.getZ());
-        armorStand.setArms(true);
-        EntityEquipment equipment = ((LivingEntity) armorStand.getBukkitEntity()).getEquipment();
-        equipment.setItemInMainHand(new ItemStack(Material.POPPY));
-        armorStand.setBodyPose(new Vector3f(0, 0, 0));
 
-        WorldServer world = ((CraftWorld)player.getWorld()).getHandle();
-        world.addEntity(armorStand);
+        ArmorStand armorStand = player.getWorld().spawn(loc.clone().add(0, 1, 0), ArmorStand.class, stand -> {
+            stand.setInvisible(true);
+            stand.setInvulnerable(true);
+            stand.setGravity(false);
+            stand.getEquipment().setItemInMainHand(new ItemStack(Material.POPPY));
+            stand.setRightArmPose(new EulerAngle(Math.toRadians(15), 0, 0));
+        });
 
         new BukkitRunnable() {
-            boolean first;
+            boolean first = false;
+            final double damage = Utils.getMeleeDamage(event.getSbPlayer(), event.getSbItem(), false);
             @Override
             public void run() {
-                double damage = Utils.getMeleeDamage(event.getSbPlayer(), event.getSbItem());
+
                 List<LivingEntity> near = null;
                 if (!first) {
-                    List<LivingEntity> entities = Utils.getNearestEntities(armorStand.getBukkitEntity(),0.5);
+                    List<LivingEntity> entities = Utils.getNearestEntities(armorStand,0.5);
                     if (entities.isEmpty()) {
-                        armorStand.getBukkitEntity().setVelocity(loc.getDirection().multiply(1));
+                        armorStand.teleport(armorStand.getLocation().add(loc.getDirection().normalize()));
                         return;
                     }
                     LivingEntity entity = entities.get(0);
 
                     entity.damage(damage);
                     first = true;
-                    near = Utils.getNearestEntities(armorStand.getBukkitEntity(), 3);
-                    if (near.isEmpty()) return;
+                    near = Utils.getNearestEntities(armorStand, 3);
+                    if (near.isEmpty()) {
+                        cancel();
+                        armorStand.remove();
+                    }
                 }
                 if (first) {
-                    armorStand.getBukkitEntity().setVelocity(near.get(0).getLocation().getDirection().multiply(3));
+                    armorStand.setVelocity(near.get(0).getLocation().getDirection().multiply(3));
                     near.get(0).damage(damage);
                     if (near.size() == 2) {
-                        armorStand.getBukkitEntity().setVelocity(near.get(1).getLocation().getDirection().multiply(3));
+                        armorStand.setVelocity(near.get(1).getLocation().getDirection().multiply(3));
                         near.get(1).damage(damage);
                     }
                     cancel();
-                    armorStand.getBukkitEntity().remove();
+                    armorStand.remove();
                 }
 
-                if (armorStand.getBukkitEntity().getLocation().distance(loc) >= 50) {
-                    armorStand.getBukkitEntity().remove();
+                if (armorStand.getLocation().distance(loc) >= 50) {
+                    armorStand.remove();
                     cancel();
                 }
             }
         }.runTaskTimer(SkyBlock.getInstance(), 1, 1);
-    }
-
-    @EventHandler
-    public void onHeld(PlayerItemHeldEvent event) {
-        Player player = event.getPlayer();
-        if (!Utils.isRightItem(event, getItem())) return;
-        ItemStack item = player.getInventory().getItem(event.getNewSlot());
-        SbItem sbItem = Items.getSbItem(item);
-        SbPlayer sbPlayer = PlayerManager.getPlayerManager().getSBPlayer(player);
-        int manaCost = (int) Utils.getPercent(sbPlayer.getMaxMana(), 10);
-        Utils.changeLore(item, "Mana Cost: ", "&8Mana Cost: &b" + manaCost);
-        sbItem.getAbilities().get(0).setManaCost(manaCost);
     }
 }

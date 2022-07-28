@@ -44,20 +44,28 @@ public class SbAbility {
 
     public List<String> toLore() {
         List<String> lore = new ArrayList<>();
-        if (this.abilityType != AbilityType.FULL_SET_BONUS) {
-            lore.add(ChatColor.GOLD + "Item Ability: " + this.name + " " + ChatColor.YELLOW + ChatColor.BOLD + this.abilityType.getText());
+        if (abilityType == AbilityType.FULL_SET_BONUS) {
+            lore.add(ChatColor.GOLD + "Full Set Bonus: " + this.name);
+            for (String d : description)
+                lore.add(Utils.color(Utils.icon(d)));
+            if (this.cooldown > 0) {
+                lore.add(ChatColor.DARK_GRAY + "Cooldown: " + ChatColor.GREEN + this.cooldown + "s.");
+            }
+        } else if (abilityType == AbilityType.PIECE_BONUS) {
+            lore.add(ChatColor.GOLD + "Piece Bonus: " + this.name);
+            for (String d : description)
+                lore.add(Utils.color(Utils.icon(d)));
+        } else if (abilityType == AbilityType.EXTRA_BONUS) {
+            lore.add(ChatColor.GOLD + "Extra Bonus: " + ChatColor.GREEN + name);
+            for (String d : description)
+                lore.add(Utils.color(Utils.icon(d)));
+        } else {
+            lore.add(ChatColor.GOLD + "Ability: " + this.name + " " + ChatColor.YELLOW + ChatColor.BOLD + this.abilityType.getText());
             for (String d : description)
                 lore.add(Utils.color(Utils.icon(d)));
             if (this.manaCost > 0) {
                 lore.add(ChatColor.DARK_GRAY + "Mana cost: " + ChatColor.DARK_AQUA + manaCost);
             }
-            if (this.cooldown > 0) {
-                lore.add(ChatColor.DARK_GRAY + "Cooldown: " + ChatColor.GREEN + this.cooldown + "s.");
-            }
-        } else {
-            lore.add(ChatColor.GOLD + "Full Set Bonus: " + this.name + " " + ChatColor.YELLOW);
-            for (String d : description)
-                lore.add(Utils.color(Utils.icon(d)));
             if (this.cooldown > 0) {
                 lore.add(ChatColor.DARK_GRAY + "Cooldown: " + ChatColor.GREEN + this.cooldown + "s.");
             }

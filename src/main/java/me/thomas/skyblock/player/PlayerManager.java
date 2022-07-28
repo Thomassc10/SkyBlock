@@ -8,7 +8,7 @@ public class PlayerManager {
 
     private final List<SbPlayer> sbPlayers;
     private static PlayerManager playerManager;
-    public PlayerManager(){
+    public PlayerManager() {
         playerManager = this;
         sbPlayers = Collections.synchronizedList(new ArrayList<>());
     }

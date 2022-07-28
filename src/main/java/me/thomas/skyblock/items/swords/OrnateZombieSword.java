@@ -26,7 +26,7 @@ public class OrnateZombieSword extends me.thomas.skyblock.items.SbItem implement
 
     public OrnateZombieSword() {
         super(new ItemStack(Material.GOLDEN_SWORD), "Ornate Zombie Sword", 110, 60, 0, 0, 50, 0, 0, null, Collections.singletonList(
-                new SbAbility("Instant Heal", AbilityType.RIGHT_CLICK, Arrays.asList("&7Heal for &c144 + 5%❤ &7and",
+                new SbAbility("Instant Heal", AbilityType.RIGHT_CLICK, Arrays.asList("&7Heal for &c144 &7+ &c5%❤ &7and",
                         "&7heal player within &a7 &7blocks", "&7for &c48❤&7."), 70, 15)), true, SbRarity.EPIC_SWORD);
         Utils.setIntInItem(getItem(), "charges", 5);
     }

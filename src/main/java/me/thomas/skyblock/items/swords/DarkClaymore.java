@@ -31,7 +31,7 @@ public class DarkClaymore extends me.thomas.skyblock.items.SbItem implements Lis
         RayTraceResult rayTraceResult = player.rayTraceBlocks(5);
         if (rayTraceResult.getHitEntity() != null && rayTraceResult.getHitEntity() instanceof LivingEntity && !(rayTraceResult.getHitEntity() instanceof Player)) {
             LivingEntity entity = (LivingEntity) rayTraceResult.getHitEntity();
-            entity.damage(Utils.getMeleeDamage(PlayerManager.getPlayerManager().getSBPlayer(player), Items.getSbItem(player.getInventory().getItemInMainHand())));
+            entity.damage(Utils.getMeleeDamage(PlayerManager.getPlayerManager().getSBPlayer(player), Items.getSbItem(player.getInventory().getItemInMainHand()), false));
         }
     }
 }

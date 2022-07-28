@@ -23,7 +23,7 @@ public class RadiantPowerOrb extends me.thomas.skyblock.items.SbItem implements 
         super(Utils.getValueHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2FiNGM0ZDZlZTY5YmMyNGJiYTJiOGZhZjY3YjlmNzA0YTA2YjAxYWE5M2YzZWZhNmFlZjdhOTY5NmM0ZmVlZiJ9fX0="),
                 "Radiant Power Orb", Arrays.asList("&aOrb Buff: Radiant", "&7Heals &c1% &7of max &c%health% &7per second."), Collections.singletonList(new SbAbility("Deploy", AbilityType.NONE,
                         Arrays.asList("&7Place and orb for &a30s &7buffing", "&7up to &b5 &7players within &a18", "&7blocks.",
-                                "&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.UNCOMMON_POWER_ORB);
+                                "&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.UNCOMMON_DEPLOYABLE);
     }
 
     @EventHandler

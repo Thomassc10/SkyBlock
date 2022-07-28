@@ -21,11 +21,11 @@ public class PlasmafluxPowerOrb extends me.thomas.skyblock.items.SbItem implemen
 
     public PlasmafluxPowerOrb() {
         super(Utils.getValueHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODNlZDRjZTIzOTMzZTY2ZTA0ZGYxNjA3MDY0NGY3NTk5ZWViNTUzMDdmN2VhZmU4ZDkyZjQwZmIzNTIwODYzYyJ9fX0="),
-                "Plasmaflux Power Orb", Arrays.asList("&aOrb Buff: Plasmaflux", "&7Grants &b+125% &7base mana regen.",
-                        "Heals &c3% &7of max &c❤ &7per second.", "&7Increases all heals by &a+7.5%.", "&7Grants &c+35❁Strength."),
+                "Plasmaflux Power Orb", Arrays.asList("&6Orb Buff: Plasmaflux", "&7Grants &b+125% &7base mana regen.",
+                        "&7Heals &c3% &7of max &c❤ &7per second.", "&7Increases all heals by &a+7.5%.", "&7Grants &c+35❁Strength."),
                 Collections.singletonList(new SbAbility("Deploy", AbilityType.NONE,
-                        Arrays.asList("&7Place an orb for &a60s &7buffing", "up to &b5 &7players within &a20", "&7blocks.",
-                                "&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.EPIC_POWER_ORB);
+                        Arrays.asList("&7Place an orb for &a60s &7buffing", "&7up to &b5 &7players within &a20", "&7blocks.",
+                                "&8Costs 50% of max mana.", "&8Only one deployable buff applies."))), false, SbRarity.LEGENDARY_DEPLOYABLE);
     }
 
     @EventHandler

@@ -20,7 +20,7 @@ public class ZombieSoldierCutlass extends me.thomas.skyblock.items.SbItem implem
 
     public ZombieSoldierCutlass() {
         super(new ItemStack(Material.IRON_SWORD), "Zombie Soldier Cutlass", 52, 26, null, Collections.singletonList(
-                new SbAbility("Love Tap", AbilityType.NONE, Arrays.asList("&7Heals you for &c+10❤Health",
+                new SbAbility("Love Tap", AbilityType.NONE, Arrays.asList("&7Heals you for &c+10❤ Health",
                         "&7when you hit an entity!"))), true, SbRarity.RARE_SWORD);
     }
 

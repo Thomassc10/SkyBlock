@@ -22,7 +22,7 @@ public class VoidedgeKatana extends me.thomas.skyblock.items.SbItem implements L
         super(new ItemStack(Material.DIAMOND_SWORD), "Voidedge Katana", 125, 60, 0, 20,
                 50, 0, 0, Arrays.asList("&7Deal &a+250% &7damage to Enderman.",
                         "&7Receive &a6% &7less damage", "&7from Enderman when held."), Collections.singletonList(
-                                new SbAbility("Soulcry", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &c+200⫽Ferocity &7against",
+                                new SbAbility("Soulcry", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &c+200⫽ Ferocity &7against",
                                         "&7Enderman for &a4s", "&0Soulflow Cost: &31"), 200, 4)), true, SbRarity.RARE_SWORD);
     }
 

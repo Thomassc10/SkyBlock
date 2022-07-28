@@ -6,21 +6,15 @@ import me.thomas.skyblock.helpers.AbilityType;
 import me.thomas.skyblock.helpers.SbRarity;
 import me.thomas.skyblock.helpers.Utils;
 import me.thomas.skyblock.items.SbAbility;
-import net.minecraft.core.Vector3f;
-import net.minecraft.server.level.WorldServer;
-import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.decoration.EntityArmorStand;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -38,50 +32,42 @@ public class Bonemerang extends me.thomas.skyblock.items.SbItem implements Liste
     public void onUse(AbilityUseEvent event) {
         if (!event.getSbItem().equals(this)) return;
         Player player = event.getPlayer();
-        if (event.getSbItem().getItem().getType() != Material.BONE) return;
-
-        EntityArmorStand stand = new EntityArmorStand(EntityTypes.c, ((CraftWorld)player.getWorld()).getHandle());
-        stand.setInvisible(true);
-        stand.setInvulnerable(true);
-        stand.setArms(true);
-        stand.setRightArmPose(new Vector3f(0, (float) Math.toRadians(90), 0));
-        stand.setMarker(true);
-        stand.setNoGravity(true);
-        EntityEquipment equipment = ((LivingEntity) stand.getBukkitEntity()).getEquipment();
-        equipment.setItemInMainHand(new ItemStack(Material.BONE));
+        ItemStack item = player.getInventory().getItemInMainHand();
         Location loc = player.getLocation();
-        stand.setPosition(loc.getX(), loc.getY() + 0.25, loc.getZ());
-
-        WorldServer world = ((CraftWorld)player.getWorld()).getHandle();
-        world.addEntity(stand);
-        event.getSbItem().getItem().setType(Material.GHAST_TEAR);
+        ArmorStand armorStand = player.getWorld().spawn(loc, ArmorStand.class, stand -> {
+            stand.setInvulnerable(true);
+            stand.setInvulnerable(true);
+            stand.setGravity(false);
+            stand.getEquipment().setHelmet(new ItemStack(Material.BONE));
+        });
+        item.setType(Material.GHAST_TEAR);
 
         new BukkitRunnable() {
             int i = 0;
-            final Vector v = loc.clone().getDirection().normalize();
-            final double damage = Utils.getMeleeDamage(event.getSbPlayer(), event.getSbItem());
+            final double damage = Utils.getMeleeDamage(event.getSbPlayer(), event.getSbItem(), false);
             @Override
             public void run() {
-                stand.setHeadRotation(i);
-                i++;
-                if (!Utils.getStringFromEntity(stand.getBukkitEntity(), "bonemerang").equals("back")) {
-                    stand.getBukkitEntity().setVelocity(v.multiply(1));
-                    for (LivingEntity e : Utils.getNearestEntities(stand.getBukkitEntity(), 0.5))
+                armorStand.setRotation(i, i);
+                i+=5;
+                if (!Utils.getStringFromEntity(armorStand, "bonemerang").equals("back")) {
+                    armorStand.teleport(armorStand.getLocation().add(loc.getDirection().normalize().multiply(0.3)));
+                    for (LivingEntity e : Utils.getNearestEntities(armorStand, 0.2))
                         if (e != null)
                             e.damage(damage);
                 } else {
-                    stand.getBukkitEntity().setVelocity(player.getLocation().clone().subtract(stand.getBukkitEntity().getLocation()).toVector().normalize().multiply(1));
-                    for (LivingEntity e : Utils.getNearestEntities(stand.getBukkitEntity(), 0.5))
+                    armorStand.teleport(armorStand.getLocation().add(player.getLocation().clone().subtract(armorStand.getLocation()).toVector().normalize().multiply(0.4)));
+                    for (LivingEntity e : Utils.getNearestEntities(armorStand, 0.2))
                         if (e != null)
                             e.damage(damage * 2);
                 }
-                if (stand.getBukkitEntity().getLocation().distance(loc) >= 6) {
-                    Utils.setStringInEntity(stand.getBukkitEntity(), "bonemerang", "back");
-                }
-                if (stand.getBukkitEntity().getLocation().distance(loc) <= 1 && Utils.getStringFromEntity(stand.getBukkitEntity(), "bonemerang").equals("back")) {
-                    event.getSbItem().getItem().setType(Material.BONE);
+
+                if (armorStand.getLocation().distance(loc) >= 8)
+                    Utils.setStringInEntity(armorStand, "bonemerang", "back");
+
+                if (armorStand.getLocation().distance(loc) <= 1 && Utils.getStringFromEntity(armorStand, "bonemerang").equals("back")) {
+                    item.setType(Material.BONE);
                     cancel();
-                    stand.getBukkitEntity().remove();
+                    armorStand.remove();
                 }
             }
         }.runTaskTimer(SkyBlock.getInstance(), 1, 1);

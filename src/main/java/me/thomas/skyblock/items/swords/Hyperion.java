@@ -15,8 +15,8 @@ public class Hyperion extends me.thomas.skyblock.items.SbItem implements Listene
 
     public Hyperion() {
         super(new ItemStack(Material.IRON_SWORD), "Hyperion", 260, 150, 0, 0,
-                350, 0, 0, 30, Arrays.asList("&7Deals &c+50% &7damage to",
-                        "&7Withers. Grants &c+1 %damage%Damage", "&7and &a+2&b%intelligence%Intelligence &7per",
+                350, 0, 0, 30, Arrays.asList("&7Deals + &c50% &7damage to",
+                        "&7Withers. Grants &c+1 ❁ Damage", "&7and &a+2&b %intelligence% Intelligence &7per",
                         "&cCatacombs &7level."), null, true, SbRarity.LEGENDARY_SWORD);
     }
 

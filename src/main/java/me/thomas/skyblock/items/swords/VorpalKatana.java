@@ -22,7 +22,7 @@ public class VorpalKatana extends me.thomas.skyblock.items.SbItem implements Lis
         super(new ItemStack(Material.DIAMOND_SWORD), "Vorpal Katana", 155, 80, 0, 25,
                 200, 0, 0, Arrays.asList("&7Deal &a+350% &7damage to Enderman.",
                         "&7Receive &a9% &7less damage", "&7from Enderman when held."), Collections.singletonList(
-                        new SbAbility("Soulcry", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &c+300⫽Ferocity &7against",
+                        new SbAbility("Soulcry", AbilityType.RIGHT_CLICK, Arrays.asList("&7Gain &c+300⫽ Ferocity &7against",
                                 "&7Enderman for &a4s", "&0Soulflow Cost: &31"), 200, 4)), true, SbRarity.EPIC_SWORD);
     }
 

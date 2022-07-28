@@ -19,7 +19,7 @@ public class SoulsRebound extends me.thomas.skyblock.items.SbItem implements Lis
     public SoulsRebound() {
         super(new ItemStack(Material.BOW), "Souls Rebound", 450, 0, Arrays.asList(
                 "&7Your arrows mark enemies you hit", "&7for &b5 &7seconds. Marked",
-                "&7Enemies don't take damage from", "you, once the mark expires the",
+                "&7Enemies don't take damage from", "&7you, once the mark expires the",
                 "&7target will receive a burst of", "&7damage equal to all the damage",
                 "&7dealt during the mark increased", "&7by up to &c20%&7."), null, true, SbRarity.EPIC_BOW);
     }

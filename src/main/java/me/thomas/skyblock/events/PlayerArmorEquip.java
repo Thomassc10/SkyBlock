@@ -13,18 +13,39 @@ public class PlayerArmorEquip implements Listener {
     @EventHandler
     public void onEquip(ArmorEquipEvent event) {
         SbPlayer sbPlayer = PlayerManager.getPlayerManager().getSBPlayer(event.getPlayer());
-        SbArmor oldArmor = Items.getSbArmor(event.getOldArmorPiece());
-        SbArmor newArmor = Items.getSbArmor(event.getNewArmorPiece());
+        SbArmor oldItem = Items.getSbArmor(event.getOldArmorPiece());
+        SbArmor newItem = Items.getSbArmor(event.getNewArmorPiece());
 
-        if (newArmor != null && oldArmor != null) {
-            sbPlayer.addMaxHealth(newArmor.getHealth() - oldArmor.getHealth());
-            sbPlayer.addDefense(newArmor.getDefense() - oldArmor.getDefense());
-        } else if (newArmor == null && oldArmor != null) {
-            sbPlayer.removeMaxHealth(oldArmor.getHealth());
-            sbPlayer.removeDefense(oldArmor.getDefense());
-        } else if (newArmor != null) {
-            sbPlayer.addMaxHealth(newArmor.getHealth());
-            sbPlayer.addDefense(newArmor.getDefense());
+        if (newItem != null && oldItem != null) {
+            sbPlayer.addMaxHealth(newItem.getHealth() - oldItem.getHealth());
+            sbPlayer.addDefense(newItem.getDefense() - oldItem.getDefense());
+            sbPlayer.addStrenght(newItem.getStrenght() - oldItem.getStrenght());
+            sbPlayer.addCriticalChance(newItem.getCritChance() - oldItem.getCritChance());
+            sbPlayer.addCriticalDamage(newItem.getCritDamage() - oldItem.getCritDamage());
+            sbPlayer.addSpeed(newItem.getSpeed() - oldItem.getSpeed());
+            sbPlayer.addDefense(newItem.getDefense() - oldItem.getDefense());
+            sbPlayer.addMaxMana(newItem.getMana() - oldItem.getMana());
+            sbPlayer.addFerocity(newItem.getFerocity() - oldItem.getFerocity());
+        } else if (oldItem == null && newItem != null) {
+            sbPlayer.addMaxHealth(newItem.getHealth());
+            sbPlayer.addDefense(newItem.getDefense());
+            sbPlayer.addStrenght(newItem.getStrenght());
+            sbPlayer.addCriticalChance(newItem.getCritChance());
+            sbPlayer.addCriticalDamage(newItem.getCritDamage());
+            sbPlayer.addSpeed(newItem.getSpeed());
+            sbPlayer.addDefense(newItem.getDefense());
+            sbPlayer.addMaxMana(newItem.getMana());
+            sbPlayer.addFerocity(newItem.getFerocity());
+        } else if (oldItem != null) {
+            sbPlayer.removeMaxHealth(oldItem.getHealth());
+            sbPlayer.removeDefense(oldItem.getDefense());
+            sbPlayer.removeStrenght(oldItem.getStrenght());
+            sbPlayer.removeCriticalChance(oldItem.getCritChance());
+            sbPlayer.removeCriticalDamage(oldItem.getCritDamage());
+            sbPlayer.removeSpeed(oldItem.getSpeed());
+            sbPlayer.removeDefense(oldItem.getDefense());
+            sbPlayer.removeMaxMana(oldItem.getMana());
+            sbPlayer.removeFerocity(oldItem.getFerocity());
         }
     }
 }

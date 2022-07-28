@@ -1,12 +1,12 @@
-package me.thomas.skyblock.skills;
+package me.thomas.skyblock.player.skills;
 
-public class FarmingSkill {
+public class AlchemySkill {
 
     private int level;
     private double currentExp;
     private double expNeeded;
-    public FarmingSkill(){
-        Skills.setSkillType(SkillType.FARMING);
+    public AlchemySkill(){
+        Skills.setSkillType(SkillType.ALCHEMY);
     }
 
     public int getLevel() {

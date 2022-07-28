@@ -8,7 +8,9 @@ import me.thomas.skyblock.items.Items;
 import me.thomas.skyblock.items.SbAbility;
 import me.thomas.skyblock.items.SbItem;
 import me.thomas.skyblock.player.PlayerManager;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -19,7 +21,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.RayTraceResult;
+import org.bukkit.util.Vector;
 
 import java.util.*;
 
@@ -29,11 +31,11 @@ public class Terminator extends SbItem implements Listener {
     public Terminator() {
         super(new ItemStack(Material.BOW), "Terminator", 310, 50, 0, 250, 0, 0, 0, 0,
                 Arrays.asList("&6Shortbow: Instantly shoots!", "&7Shoots &b3 &7arrow at once.", "&7Can damage enderman.",
-                        "", "&cDivides your &1%critChance%Crit Chance &cby 4!"), Collections.singletonList(
+                        "", "&cDivides your &9%critChance%Crit Chance &cby 4!"), Collections.singletonList(
                         new SbAbility("Salvation", AbilityType.RIGHT_CLICK, Arrays.asList(
                                 "&7Can be cast after landing &63 hits.", "&7Shoots a beam, penetrating up",
                                 "&7to &e6 &7foes and dealing &c2x", "&7the damage and arrow would.",
-                                "&7The beam always crits.", "&1Soulflow Cost: &31%soulFlow%"), 0, 2)), true, SbRarity.LEGENDARY_BOW);
+                                "&7The beam always crits.", "&8Soulflow Cost: &31%soulFlow%"), 0, 2)), true, SbRarity.LEGENDARY_BOW);
     }
 
     @EventHandler
@@ -64,13 +66,20 @@ public class Terminator extends SbItem implements Listener {
     public void onUse(AbilityUseEvent event) {
         if (!event.getSbItem().equals(this)) return;
         Player player = event.getPlayer();
-        if (event.getType() != AbilityType.RIGHT_CLICK) return;
         if (Utils.getIntFromEntity(player, "terminator") == 3) {
             Utils.setIntInEntity(player, "terminator", 0);
-            RayTraceResult result = player.getWorld().rayTraceEntities(player.getLocation(), player.getLocation().getDirection(), 32);
-
-            if (result.getHitEntity() != null) {
-                ((LivingEntity)result.getHitEntity()).damage(Utils.getMeleeDamage(event.getSbPlayer(), event.getSbItem()) * 2);
+            Location loc = player.getEyeLocation();
+            Vector dir = loc.getDirection();
+            for (int i = 0; i < 30; i+=0.1) {
+                dir.multiply(i);
+                loc.add(dir);
+                player.getWorld().spawnParticle(Particle.DRAGON_BREATH, loc, 1);
+                player.getWorld().getNearbyEntities(loc, 0.2, 0.2, .02).forEach(e -> {
+                    if (e != null)
+                        ((LivingEntity)e).damage(Utils.getMeleeDamage(event.getSbPlayer(), event.getSbItem(), true) * 2);
+                });
+                loc.subtract(dir);
+                dir.normalize();
             }
         }
     }
@@ -85,24 +94,7 @@ public class Terminator extends SbItem implements Listener {
             event.setCancelled(true);
             SbItem sbItem = Items.getSbItem(player.getInventory().getItemInMainHand());
             ((LivingEntity)event.getHitEntity()).damage(Utils.getMeleeDamage(PlayerManager.getPlayerManager().getSBPlayer(player),
-                    sbItem));
+                    sbItem, false));
         }
     }
-
-    /*@EventHandler
-    public void onHeld(PlayerItemHeldEvent event) {
-        Player player = event.getPlayer();
-        ItemStack next = player.getInventory().getItem(event.getNewSlot());
-        ItemStack previous = player.getInventory().getItem(event.getPreviousSlot());
-        assert next != null;
-        SbPlayer sbPlayer = PlayerManager.getPlayerManager().getSBPlayer(player);
-        if (Utils.getStringFromItem(next, "item_key").equals("terminator")) {
-            sbPlayer.setCriticalChance(sbPlayer.getCriticalChance() / 4);
-        } else {
-            assert previous != null;
-            if (Utils.getStringFromItem(previous, "item_key").equals("terminator")) {
-                sbPlayer.setCriticalChance(sbPlayer.getCriticalChance() * 4);
-            }
-        }
-    }*/
 }

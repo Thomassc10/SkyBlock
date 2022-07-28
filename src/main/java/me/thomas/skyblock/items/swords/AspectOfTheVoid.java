@@ -24,7 +24,7 @@ public class AspectOfTheVoid extends me.thomas.skyblock.items.SbItem implements 
         super(new ItemStack(Material.DIAMOND_SHOVEL), "Aspect of the Void", 120, 100, null,
                 Collections.singletonList(new SbAbility("Instant Transmission", AbilityType.RIGHT_CLICK,
                         Arrays.asList("&7Teleport &a8 blocks &7ahead of",
-                                "&7you and gain &a+50 &f✦Speed", "&7for &a3 seconds&7."), 45)), true, SbRarity.EPIC_SWORD);
+                                "&7you and gain &a+50 &f✦ Speed", "&7for &a3 seconds&7."), 45)), true, SbRarity.EPIC_SWORD);
         Utils.setIntInItem(getItem(), "speed", 0);
     }
 

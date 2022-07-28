@@ -55,7 +55,7 @@ public class RunaansBow extends me.thomas.skyblock.items.SbItem implements Liste
             event.setCancelled(true);
             event.getEntity().remove();
             ((LivingEntity)event.getHitEntity()).damage(Utils.getPercent(Utils.getMeleeDamage(
-                    PlayerManager.getPlayerManager().getSBPlayer(player), sbItem), 40));
+                    PlayerManager.getPlayerManager().getSBPlayer(player), sbItem, false), 40));
         }
     }
 }

@@ -17,8 +17,8 @@ public class IceSprayWand extends me.thomas.skyblock.items.SbItem implements Lis
     public IceSprayWand() {
         super(new ItemStack(Material.STICK), "Ice Spray Wand", 52, 0, 0, 0, 118, 0, 0, null, Collections.singletonList(
                 new SbAbility("Ice Spray", AbilityType.RIGHT_CLICK, Arrays.asList("&7Produces a cone of ice in front",
-                        "&7of the caster that deals", "&c17,000 &7damage to mobs and", "freezes them in place for &e5",
-                        "seconds! Frozen mobs take", "&c10% &7increased damage!"), 50, 5)), true, SbRarity.RARE_SWORD);
+                        "&7of the caster that deals", "&c17,000 &7damage to mobs and", "&7freezes them in place for &e5",
+                        "&7seconds! Frozen mobs take", "&c10% &7increased damage!"), 50, 5)), true, SbRarity.RARE_SWORD);
     }
 
     @EventHandler

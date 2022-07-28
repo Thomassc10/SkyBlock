@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class PrismarineBlade extends SbItem implements Listener {
 
     public PrismarineBlade() {
-        super(new ItemStack(Material.PRISMARINE), "Prismarine Blade", 50, 25, Arrays.asList("Deals &a+200% &7damage while in", "&7water."), null, true, SbRarity.UNCOMMON_SWORD);
+        super(new ItemStack(Material.PRISMARINE_SHARD), "Prismarine Blade", 50, 25, Arrays.asList("&7Deals &a+200% &7damage while in", "&7water."), null, true, SbRarity.UNCOMMON_SWORD);
     }
 
     @EventHandler

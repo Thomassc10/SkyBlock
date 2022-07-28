@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class WitherBow extends me.thomas.skyblock.items.SbItem implements Listener {
 
     public WitherBow() {
-        super(new ItemStack(Material.BOW), "Bow", 30, 0, Arrays.asList("&7Deals &a+100% &7damage to",
+        super(new ItemStack(Material.BOW), "Wither Bow", 30, 0, Arrays.asList("&7Deals &a+100% &7damage to",
                 "&aWithers and Wither", "&aSkeletons."), null, true, SbRarity.UNCOMMON_BOW);
     }
 
