@@ -3,24 +3,12 @@ package me.thomas.skyblock.items.swords;
 import me.thomas.skyblock.events.customevents.abilityuse.AbilityUseEvent;
 import me.thomas.skyblock.helpers.AbilityType;
 import me.thomas.skyblock.helpers.SbRarity;
-import me.thomas.skyblock.helpers.Utils;
 import me.thomas.skyblock.items.SbAbility;
-import net.minecraft.network.chat.ChatComponentText;
-import net.minecraft.server.level.WorldServer;
-import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.monster.EntityGiantZombie;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.RayTraceResult;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -37,8 +25,9 @@ public class GiantSword extends me.thomas.skyblock.items.SbItem implements Liste
     public void onUse(AbilityUseEvent event) {
         if (!event.getSbItem().equals(this)) return;
         Player player = event.getPlayer();
-        EntityGiantZombie zombie = new EntityGiantZombie(EntityTypes.G, ((CraftWorld)player.getWorld()).getHandle());
-        zombie.setSilent(true);
+        //EntityGiantZombie zombie = new EntityGiantZombie(EntityTypes.G, ((CraftWorld)player.getWorld()).getHandle());
+
+        /*zombie.setSilent(true);
         zombie.setInvisible(true);
         zombie.setInvulnerable(true);
         zombie.setCustomName(new ChatComponentText("Dinnerbone"));
@@ -59,6 +48,6 @@ public class GiantSword extends me.thomas.skyblock.items.SbItem implements Liste
                 ((LivingEntity) e).damage(100000);
             }
         }
-        Utils.scheduleTask(() -> zombie.getBukkitEntity().remove(), 100);
+        Utils.scheduleTask(() -> zombie.getBukkitEntity().remove(), 100);*/
     }
 }

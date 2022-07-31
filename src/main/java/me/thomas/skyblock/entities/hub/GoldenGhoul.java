@@ -5,9 +5,9 @@ import net.minecraft.world.entity.monster.EntityZombie;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
 
-public class GoldenGhoul extends EntityZombie {
+public class GoldenGhoul {
 
-    public GoldenGhoul(Location loc) {
+    /*public GoldenGhoul(Location loc) {
         super(EntityTypes.be, ((CraftWorld)loc.getWorld()).getHandle());
-    }
+    }*/
 }

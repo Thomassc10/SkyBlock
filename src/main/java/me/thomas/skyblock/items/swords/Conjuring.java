@@ -1,6 +1,5 @@
 package me.thomas.skyblock.items.swords;
 
-import me.thomas.skyblock.SkyBlock;
 import me.thomas.skyblock.events.customevents.abilityuse.AbilityUseEvent;
 import me.thomas.skyblock.helpers.SbRarity;
 import org.bukkit.Material;
@@ -9,7 +8,6 @@ import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Arrays;
 

@@ -5,10 +5,7 @@ import me.thomas.skyblock.helpers.AbilityType;
 import me.thomas.skyblock.helpers.SbRarity;
 import me.thomas.skyblock.helpers.Utils;
 import me.thomas.skyblock.items.SbAbility;
-import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.decoration.EntityArmorStand;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,7 +29,7 @@ public class LividDagger extends me.thomas.skyblock.items.SbItem implements List
     public void onUse(AbilityUseEvent event) {
         if (!event.getSbItem().equals(this)) return;
         Player player = event.getPlayer();
-        EntityArmorStand armorStand = new EntityArmorStand(EntityTypes.c, ((CraftWorld)player.getWorld()).getHandle());
+        //EntityArmorStand armorStand = new EntityArmorStand(EntityTypes.c, ((CraftWorld)player.getWorld()).getHandle());
     }
 
     @EventHandler

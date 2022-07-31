@@ -4,11 +4,11 @@ import me.thomas.skyblock.commands.GetSbItem;
 import me.thomas.skyblock.commands.SbItemsMenu;
 import me.thomas.skyblock.commands.SbMenu;
 import me.thomas.skyblock.datamanager.DataManager;
-import me.thomas.skyblock.entities.SbEntities;
 import me.thomas.skyblock.events.*;
 import me.thomas.skyblock.events.customevents.abilityuse.UseAbility;
 import me.thomas.skyblock.events.customevents.armorequip.EquipArmor;
 import me.thomas.skyblock.events.customevents.fullset.EquipSet;
+import me.thomas.skyblock.helpers.Utils;
 import me.thomas.skyblock.items.Items;
 import me.thomas.skyblock.items.bows.Terminator;
 import me.thomas.skyblock.items.bows.*;
@@ -46,10 +46,10 @@ public class SkyBlock extends JavaPlugin {
 		instance = this;
 		new PlayerManager();
 		Items.registerSbItems();
-		this.saveDefaultConfig();
+		saveDefaultConfig();
 		registerCommands();
 		registerEvents();
-		SbEntities.registerEntities();
+		//SbEntities.registerEntities();
 
 		me.thomas.skyblock.menus.SbMenu.register();
 		me.thomas.skyblock.menus.ItemsMenu.register();
@@ -180,9 +180,13 @@ public class SkyBlock extends JavaPlugin {
 	public static ItemStack menuItem() {
 		ItemStack star = new ItemStack(Material.NETHER_STAR);
 		ItemMeta meta = star.getItemMeta();
-		meta.setDisplayName(ChatColor.GREEN + "SkyBlock Menu");
+		meta.setDisplayName(ChatColor.GREEN + "SkyBlock Menu " + ChatColor.GRAY + "(Click)");
 		List<String> lore = new ArrayList<>();
-		lore.add("Right-Click to open the menu");
+		lore.add(Utils.color("&7View all of your SkyBlock"));
+		lore.add(Utils.color("&7progress, including your Skills,"));
+		lore.add(Utils.color("&7Collections, Recipes, and more!"));
+		lore.add("");
+		lore.add(Utils.color("&eClick to open!"));
 		meta.setLore(lore);
 		star.setItemMeta(meta);
 		return star;

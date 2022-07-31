@@ -1,21 +1,8 @@
 package me.thomas.skyblock.entities.hub;
 
-import me.thomas.skyblock.entities.SbEntities;
-import me.thomas.skyblock.entities.SbEntity;
+public class Zombie {
 
-import net.minecraft.network.chat.ChatComponentText;
-import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.ai.goal.PathfinderGoalFloat;
-import net.minecraft.world.entity.ai.goal.PathfinderGoalLookAtPlayer;
-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalNearestAttackableTarget;
-import net.minecraft.world.entity.monster.EntityZombie;
-import net.minecraft.world.entity.player.EntityHuman;
-import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
-
-public class Zombie extends EntityZombie {
-
-    SbEntity sbEntity = SbEntities.getMobs().get("zombie");
+    /*SbEntity sbEntity = SbEntities.getMobs().get("zombie");
 
     public Zombie(Location loc) {
         super(EntityTypes.be, ((CraftWorld)loc.getWorld()).getHandle());
@@ -42,11 +29,11 @@ public class Zombie extends EntityZombie {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 4.0F));
         this.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true));
-    }*/
+    }
 
 
 
     public void setHealth(int i) {
         this.setHealth(i);
-    }
+    }*/
 }

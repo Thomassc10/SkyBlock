@@ -1,18 +1,5 @@
 package me.thomas.skyblock.npcs;
 
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
-import net.minecraft.server.level.EntityPlayer;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_17_R1.CraftServer;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.UUID;
-
 public class CreateNPC {
 
     private final String name;
@@ -22,7 +9,7 @@ public class CreateNPC {
         this.skin = skin;
     }
 
-    public void create(Player player) throws InvocationTargetException {
+    /*public void create(Player player) throws InvocationTargetException {
         EntityPlayer craftPlayer = ((CraftPlayer) player).getHandle();
 
         // textures
@@ -40,10 +27,10 @@ public class CreateNPC {
         // send packets
         for (Player p : Bukkit.getOnlinePlayers()){
             /*PlayerConnection playerConnection = ((CraftPlayer) p).getHandle().b;
-            playerConnection.sendPacket(new PacketPlayOutNamedEntitySpawn(entityPlayer));*/
+            playerConnection.sendPacket(new PacketPlayOutNamedEntitySpawn(entityPlayer));
             //SkyBlock.getInstance().getProtocolManager().sendServerPacket(p, new PacketContainer(PacketType.Play.Server.NAMED_ENTITY_SPAWN));
         }
-    }
+    }*/
 
     public String getName() {
         return name;

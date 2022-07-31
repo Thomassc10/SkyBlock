@@ -6,12 +6,9 @@ import me.thomas.skyblock.helpers.AbilityType;
 import me.thomas.skyblock.helpers.SbRarity;
 import me.thomas.skyblock.helpers.Utils;
 import me.thomas.skyblock.items.SbAbility;
-import net.minecraft.server.level.WorldServer;
-import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.decoration.EntityArmorStand;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -39,35 +36,34 @@ public class JerryChineGun extends me.thomas.skyblock.items.SbItem implements Li
         if (!event.getSbItem().equals(this)) return;
         ItemStack jerry = Utils.getValueHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNhOGVmMjQ1OGEyYjEwMjYwYjg3NTY1NThmNzY3OWJjYjdlZjY5MWQ0MWY1MzRlZmVhMmJhNzUxMDczMTVjYyJ9fX0=");
         Player player = event.getPlayer();
-        EntityArmorStand armorStand = new EntityArmorStand(EntityTypes.c, ((CraftWorld)player.getWorld()).getHandle());
-        armorStand.setInvisible(true);
-        armorStand.setInvulnerable(true);
-        EntityEquipment equipment = ((LivingEntity) armorStand.getBukkitEntity()).getEquipment();
-        equipment.setHelmet(jerry);
+        //EntityArmorStand armorStand = new EntityArmorStand(EntityTypes.c, ((CraftWorld)player.getWorld()).getHandle());
+        ArmorStand armorStand = player.getWorld().spawn(player.getLocation(), ArmorStand.class, a -> {
+            a.setInvisible(true);
+            a.setInvulnerable(true);
+            EntityEquipment equipment = a.getEquipment();
+            equipment.setHelmet(jerry);
+        });
 
-        Location loc = player.getLocation();
-        armorStand.setPosition(loc.getX(), loc.getY(), loc.getZ());
-        WorldServer world = ((CraftWorld)player.getWorld()).getHandle();
-        world.addEntity(armorStand);
 
         new BukkitRunnable() {
-
+            final Location loc = player.getLocation();
             @Override
             public void run() {
-                armorStand.getBukkitEntity().setVelocity(loc.getDirection().multiply(2));
+                //armorStand.setVelocity(loc.getDirection().multiply(2));
+                armorStand.teleport(armorStand.getLocation().add(loc.getDirection().normalize().multiply(0.5)));
 
-                List<LivingEntity> living = Utils.getNearestEntities(armorStand.getBukkitEntity(), 0.5);
+                List<LivingEntity> living = Utils.getNearestEntities(armorStand, 0.1);
                 if (living.isEmpty()) return;
                 for (LivingEntity entity : living) {
                     if (!(entity instanceof Player)) {
-                        armorStand.getBukkitEntity().remove();
+                        armorStand.remove();
                         entity.damage(500);
                         cancel();
                     }
                 }
 
-                if (armorStand.getBukkitEntity().getLocation().distance(loc) >= 50) {
-                    armorStand.getBukkitEntity().remove();
+                if (armorStand.getLocation().distance(loc) >= 50) {
+                    armorStand.remove();
                     cancel();
                 }
             }

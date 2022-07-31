@@ -6,14 +6,10 @@ import me.thomas.skyblock.helpers.AbilityType;
 import me.thomas.skyblock.helpers.SbRarity;
 import me.thomas.skyblock.helpers.Utils;
 import me.thomas.skyblock.items.SbAbility;
-import net.minecraft.server.level.WorldServer;
-import net.minecraft.world.entity.EntityCreature;
-import net.minecraft.world.entity.EntityLiving;
-import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.ai.goal.PathfinderGoalFloat;
-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalNearestAttackableTarget;
-import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -60,11 +56,11 @@ public class ReaperScythe extends me.thomas.skyblock.items.SbItem implements Lis
         } else {
             for (Long l : array) {
                 Entity entity = Bukkit.getEntity(UUID.fromString(String.valueOf(l)));
-                EntityCreature creature = (EntityCreature) entity;
+                /*EntityCreature creature = (EntityCreature) entity;
                 @SuppressWarnings("unchecked")
                 MyEntity myEntity = new MyEntity((EntityTypes<? extends EntityCreature>) creature.getEntityType(), player.getLocation());
                 WorldServer world = ((CraftWorld)player.getWorld()).getHandle();
-                world.addEntity(myEntity);
+                world.addEntity(myEntity);*/
             }
         }
     }
@@ -107,7 +103,7 @@ public class ReaperScythe extends me.thomas.skyblock.items.SbItem implements Lis
         }
     }
 
-    private static class MyEntity extends EntityCreature {
+    /*private static class MyEntity extends EntityCreature {
         protected MyEntity(EntityTypes<? extends EntityCreature> entityTypes, Location loc) {
             super(entityTypes, ((CraftWorld)loc.getWorld()).getHandle());
         }
@@ -118,5 +114,5 @@ public class ReaperScythe extends me.thomas.skyblock.items.SbItem implements Lis
             this.bP.a(1, new PathfinderGoalNearestAttackableTarget<>(this, EntityLiving.class, false));
             // custom pathfinder
         }
-    }
+    }*/
 }

@@ -1,6 +1,5 @@
 package me.thomas.skyblock.items.swords;
 
-import me.thomas.skyblock.SkyBlock;
 import me.thomas.skyblock.events.customevents.abilityuse.AbilityUseEvent;
 import me.thomas.skyblock.helpers.AbilityType;
 import me.thomas.skyblock.helpers.SbRarity;
@@ -8,14 +7,7 @@ import me.thomas.skyblock.helpers.Utils;
 import me.thomas.skyblock.items.SbAbility;
 import me.thomas.skyblock.player.PlayerManager;
 import me.thomas.skyblock.player.SbPlayer;
-import net.minecraft.server.level.WorldServer;
-import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.monster.EntityCreeper;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
-import org.bukkit.entity.Creeper;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -43,7 +35,7 @@ public class WitherCloakSword extends me.thomas.skyblock.items.SbItem implements
     public void onUse(AbilityUseEvent event) {
         if (!event.getSbItem().equals(this)) return;
         Player player = event.getPlayer();
-        EntityCreeper creeper = new EntityCreeper(EntityTypes.o, ((CraftWorld)player.getWorld()).getHandle());
+        /*EntityCreeper creeper = new EntityCreeper(EntityTypes.o, ((CraftWorld)player.getWorld()).getHandle());
         creeper.setInvisible(true);
         creeper.setInvulnerable(true);
         creeper.setPowered(true);
@@ -71,7 +63,7 @@ public class WitherCloakSword extends me.thomas.skyblock.items.SbItem implements
             Bukkit.getScheduler().cancelTask(taskID);
             map.get(player.getName()).forEach(uuid -> Bukkit.getEntity(uuid).remove());
             Utils.setIntInItem(player.getInventory().getItemInMainHand(), "active", 0);
-        }
+        }*/
     }
 
     @EventHandler
